@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 const modalRoot = document.getElementById("modal");
 
-const Modal: FunctionComponent ({ children }) => {
+const Modal: FunctionComponent = ({ children }) => {
   const elRef = useRef(document.createElement("div"));
 
   useEffect(() => {
