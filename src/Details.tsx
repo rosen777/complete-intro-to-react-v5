@@ -1,10 +1,14 @@
-import React from "react";
+import React, { lazy } from "react";
 import pet, {Photo} from "@frontendmasters/pet";
 import { navigate, RouteComponentProps } from "@reach/router";
 import Carousel from "./Carousel";
-import Modal from "./Modal";
 import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext";
+import _ from "lodash"
+import moment from "moment"
+
+console.log(_, moment)
+const Modal = lazy(() => import('./Modal'))
 
 class Details extends React.Component <RouteComponentProps<{id: string}>> {
   state = { 
@@ -32,7 +36,7 @@ class Details extends React.Component <RouteComponentProps<{id: string}>> {
           animal: animal.type,
           location: `${animal.contact.address.city}, ${
             animal.contact.address.state
-          }`,
+            }`,
           description: animal.description,
           media: animal.photos,
           breed: animal.breeds.primary,
